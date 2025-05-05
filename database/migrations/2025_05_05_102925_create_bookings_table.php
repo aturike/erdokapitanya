@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email')->required();
             $table->dateTime('start_date')->required();
             $table->dateTime('end_date')->required();
+            $table->boolean('is_available')->default(true);
+            $table->boolean('is_paid')->default(false);
             $table->boolean('is_confirmed')->default(false);
         });
     }

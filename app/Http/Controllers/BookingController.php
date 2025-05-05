@@ -37,7 +37,7 @@ class BookingController extends Controller
 
         // Check for overlapping bookings:
         $overlap = Booking::where(function ($query) use ($start, $end) {
-            $query->where('start_date', '<', $end)
+            $query->where('is_confirmed', true)->where('start_date', '<', $end)
                 ->where('end_date', '>', $start);
         })->exists();
 
